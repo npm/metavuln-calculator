@@ -85,7 +85,7 @@ fields.
 So, a third-level metavulnerability might have a key like:
 
 ```
-hash(['foo', hash(['bar', hash(['baz', hash(['123'])])])])
+hash(['foo', hash(['bar', hash(['baz', '123'])])])
 ```
 
 ### `calculator.advisory(name, advisory)`
