@@ -40,18 +40,17 @@ const advisories = await getBulkAdvisoryReportSomehow(tree)
 const set = new Set()
 for (const [name, advisory] of Object.entries(advisories)) {
   // make sure we have the advisories loaded with latest version lists
-  set.add(await calculator.advisory(name, {advisory}))
+  set.add(await calculator.calculate(name, {advisory}))
 }
 
 for (const vuln of set) {
-  const {name, vulnerableVersions} = vuln
-  for (const node of tree.inventory.query('name', name)) {
+  for (const node of tree.inventory.query('name', vuln.name)) {
     // not vulnerable, just keep looking
-    if (!vulnerableVersions.includes(node.version))
+    if (!vuln.testVersion(node.version))
       continue
     for (const { from: dep } of node.edgesIn) {
-      const metaVuln = await calculator.metavuln(node.name, vuln)
-      if (metaVuln.vulnerableVersions.includes(node.version)) {
+      const metaVuln = await calculator.calculate(dep.name, vuln)
+      if (metaVuln.testVersion(dep.version)) {
         set.add(metaVuln)
       }
     }
@@ -88,27 +87,27 @@ So, a third-level metavulnerability might have a key like:
 hash(['foo', hash(['bar', hash(['baz', '123'])])])
 ```
 
-### `calculator.advisory(name, advisory)`
+### `calculator = new Calculator(options)`
+
+Options object used for `cacache` and `pacote` calls.
+
+### `calculator.calculate(name, source)`
 
 - `name` The name of the package that the advisory is about
-- `advisory` Advisory object from the npm security endpoint
-  - `id` numeric id
+- `source` Advisory object from the npm security endpoint, or a `Vuln`
+  object returned by a previous call to the `calculate()` method.
+  "Advisory" objects need to have:
+  - `id` id of the advisory or Vuln object
   - `vulnerable_versions` range of versions affected
   - `url`
   - `title`
   - `severity`
 
-Fetches the packument and returns an "advisory" style vulnerability object
-described above.
-
-### `calculator.metavuln(name, source)`
-
-- `name` The name of the package being checked for metavulnerable status.
-- `source` A vulnerability object described in the "return" values section
-  above.
-
-Calculates the metavulnerable versions, and returns a "metavuln" style
+Fetches the packument and returns a Promise that resolves to a
 vulnerability object described above.
+
+Will perform required I/O to fetch package metadata from registry and
+read from cache.  Vulnerability information written back to cache.
 
 ## Dependent Version Sampling
 
