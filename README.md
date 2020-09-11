@@ -48,9 +48,9 @@ for (const vuln of set) {
     // not vulnerable, just keep looking
     if (!vuln.testVersion(node.version))
       continue
-    for (const { from: dep } of node.edgesIn) {
+    for (const { from: dep, spec } of node.edgesIn) {
       const metaVuln = await calculator.calculate(dep.name, vuln)
-      if (metaVuln.testVersion(dep.version)) {
+      if (metaVuln.testVersion(dep.version, spec)) {
         set.add(metaVuln)
       }
     }

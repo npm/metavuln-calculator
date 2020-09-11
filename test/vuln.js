@@ -199,6 +199,8 @@ t.test('create vulns from advisory', t => {
 
   t.notOk(mkdirpVulnBundled.testVersion('1234.1234.1234'),
     'missing version is not treated as vulnerable')
+  t.ok(mkdirpVulnBundled.testVersion('1234.1234.1235', '0.0.8'),
+    'missing version with spec is treated as vulnerable based on spec')
   t.ok(mkdirpVulnBundled.testVersion('0.5.0'),
     'known vulnerable version is shown as vulnerable')
 
