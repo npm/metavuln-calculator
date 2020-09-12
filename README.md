@@ -60,13 +60,26 @@ for (const vuln of set) {
 
 ## API
 
-### Return Value
+### Class: Vuln
 
-Both methods return a Promise that resolves to an object of the following
-shape:
+The `Calculator.calculate` method returns a Promise that resolves to a
+`Vuln` object, filled in from the cache and updated if necessary with the
+available advisory data.
 
-- `id` The unique cache key for this vuln or metavuln
+Do not instantiate `Vuln` objects directly.  Use the `calculate()` method
+to get one with appropriate data filled in.
+
+Do not mutate `Vuln` objects.  Use the supplied methods only.
+
+#### Fields
+
 - `name` The name of the package that this vulnerability is about
+- `id` The unique cache key for this vuln or metavuln.  (See **Cache Keys**
+  below.)
+- `dependency` For metavulns, the dependency that causes this package to be
+  have a vulnerability.  For advisories, the same as `name`.
+- `type` Either `'advisory'` or `'metavuln'`, depending on the type of
+  vulnerability that this object represents.
 - `url` The url for the advisory (`null` for metavulns)
 - `title` The text title of the advisory or metavuln
 - `severity` The severity level info/low/medium/high/critical
@@ -75,6 +88,21 @@ shape:
 - `vulnerableVersions` The set of versions that are vulnerable
 - `source` The numeric ID of the advisory, or the cache key of the
   vulnerability that causes this metavuln
+- `updated` Boolean indicating whether this vulnerability was updated since
+  being read from cache.
+- `packument` The packument object for the package that this vulnerability
+  is about.
+
+#### `vuln.testVersion(version, [dependencySpecifier]) -> Boolean`
+
+Check to see if a given version is vulnerable.  Returns `true` if the
+version is vulnerable, and should be avoided.
+
+For metavulns, `dependencySpecifier` indicates the version range of the
+source of the vulnerability, which the module depends on.  If not provided,
+will attempt to read from the packument.  If not provided, and unable to
+read from the packument, then `true` is returned, indicating that the (not
+installable) package version should be avoided.
 
 #### Cache Keys
 
@@ -89,7 +117,7 @@ hash(['foo', hash(['bar', hash(['baz', '123'])])])
 
 ### `calculator = new Calculator(options)`
 
-Options object used for `cacache` and `pacote` calls.
+Options object is used for `cacache` and `pacote` calls.
 
 ### `calculator.calculate(name, source)`
 
