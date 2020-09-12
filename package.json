@@ -21,7 +21,8 @@
     "coverage-map": "map.js"
   },
   "devDependencies": {
-    "tap": "^14.10.8"
+    "tap": "^14.10.8",
+    "require-inject": "^1.4.4"
   },
   "dependencies": {
     "pacote": "^11.1.11",
