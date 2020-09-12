@@ -1,0 +1,7 @@
+{
+  "id": 31,
+  "url": "https://npmjs.com/advisories/31",
+  "title": "Regular Expression Denial of Service",
+  "severity": "moderate",
+  "vulnerable_versions": "<4.3.2"
+}

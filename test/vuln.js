@@ -209,7 +209,6 @@ t.test('create vulns from advisory', t => {
   delete packuments.mkdirp.versions['99.99.99']
   const mkdirpVulnRmVers = new Vuln('mkdirp', miniFromCache)
   mkdirpVulnRmVers.load(JSON.parse(JSON.stringify(mkdirpVulnBundled)), packuments.mkdirp)
-  console.error(mkdirpVulnRmVers.vulnerableVersions)
   t.match(mkdirpVulnRmVers, {
     source: '8MDgP3O3yM8t8dcQHSMUtmH4UKJrKhWmsmV44L4YChIzoahEo+G6j24b+4BPItZck5h5zQFPFD39kOC/789lfA==',
     name: 'mkdirp',
@@ -241,7 +240,31 @@ t.test('create vulns from advisory', t => {
     expected: 'mkdirp',
     actual: 'minimist',
   })
+  t.throws(() => mkdirpVuln.load({}, mkdirpVuln.packument), {
+    message: 'vuln object already loaded'
+  })
 
+  t.end()
+})
 
+t.test('load with empty packument', t => {
+  const v = new Vuln('semver', advisories.semver)
+  v.load({}, {name: 'semver', versions: {}})
+  t.match(v, {
+    constructor: Vuln,
+    source: 31,
+    name: 'semver',
+    dependency: 'semver',
+    title: 'Regular Expression Denial of Service',
+    url: 'https://npmjs.com/advisories/31',
+    severity: 'moderate',
+    versions: [],
+    vulnerableVersions: [],
+    range: '<4.3.2',
+    id: 'jETG9IyfV60PqVhvt3BAecPdQKL2CvXOXr1GeFeSsTkGn8YHi+dU93h8zcjK/xptcxeaYeUBBKmD83eafSecwA==',
+  })
+
+  t.ok(v.testVersion('4.3.1'), 'version covered by range is vulnerable')
+  t.match(v, { vulnerableVersions: ['4.3.1'], versions: [] }, 'added to vuln set')
   t.end()
 })

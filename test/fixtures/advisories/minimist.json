@@ -1,0 +1,7 @@
+{
+  "id": 1179,
+  "url": "https://npmjs.com/advisories/1179",
+  "title": "Prototype Pollution",
+  "severity": "low",
+  "vulnerable_versions": "<0.2.1 || >=1.0.0 <1.2.3"
+}
