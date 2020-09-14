@@ -42,6 +42,25 @@ t.test('calculate fresh', async t => {
     id: '8MDgP3O3yM8t8dcQHSMUtmH4UKJrKhWmsmV44L4YChIzoahEo+G6j24b+4BPItZck5h5zQFPFD39kOC/789lfA==',
     updated: true,
   })
+  // calculate another one for same package to hit the packument memoizing
+  const otherMinimistAdvisory = {
+    ...advisories.minimist,
+    id: 123456,
+  }
+  const otherMinimistVuln = await calc.calculate('minimist', otherMinimistAdvisory)
+  t.match(otherMinimistVuln, {
+    constructor: Vuln,
+    updated: true,
+    source: 123456,
+    name: 'minimist',
+    dependency: 'minimist',
+    type: 'advisory',
+    range: '<0.2.1 || >=1.0.0 <1.2.3',
+    id: 'WNi+Ammra045Ltb3M04AEe31yaYdjqUffX/iwhuagBKRTyZCzaNihh0prxpc4kVhVK6wXV1XDSXTGEqt1JusCA==',
+    updated: true,
+  })
+
+
   const mkdirpFresh = await calc.calculate('mkdirp', minimistFresh)
   t.match(mkdirpFresh, {
     constructor: Vuln,

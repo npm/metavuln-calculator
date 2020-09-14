@@ -27,7 +27,6 @@
   "dependencies": {
     "pacote": "^11.1.11",
     "cacache": "^15.0.5",
-    "semver": "^7.3.2",
-    "npm-pick-manifest": "^6.1.0"
+    "semver": "^7.3.2"
   }
 }
