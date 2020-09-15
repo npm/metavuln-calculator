@@ -49,9 +49,9 @@ for (const vuln of set) {
     if (!vuln.testVersion(node.version))
       continue
     for (const { from: dep, spec } of node.edgesIn) {
-      const metaVuln = await calculator.calculate(dep.name, vuln)
-      if (metaVuln.testVersion(dep.version, spec)) {
-        set.add(metaVuln)
+      const metaAdvisory = await calculator.calculate(dep.name, vuln)
+      if (metaAdvisory.testVersion(dep.version, spec)) {
+        set.add(metaAdvisory)
       }
     }
   }
@@ -60,16 +60,16 @@ for (const vuln of set) {
 
 ## API
 
-### Class: Vuln
+### Class: Advisory
 
 The `Calculator.calculate` method returns a Promise that resolves to a
-`Vuln` object, filled in from the cache and updated if necessary with the
-available advisory data.
+`Advisory` object, filled in from the cache and updated if necessary with
+the available advisory data.
 
-Do not instantiate `Vuln` objects directly.  Use the `calculate()` method
-to get one with appropriate data filled in.
+Do not instantiate `Advisory` objects directly.  Use the `calculate()`
+method to get one with appropriate data filled in.
 
-Do not mutate `Vuln` objects.  Use the supplied methods only.
+Do not mutate `Advisory` objects.  Use the supplied methods only.
 
 #### Fields
 
@@ -122,10 +122,10 @@ Options object is used for `cacache` and `pacote` calls.
 ### `calculator.calculate(name, source)`
 
 - `name` The name of the package that the advisory is about
-- `source` Advisory object from the npm security endpoint, or a `Vuln`
+- `source` Advisory object from the npm security endpoint, or a `Advisory`
   object returned by a previous call to the `calculate()` method.
   "Advisory" objects need to have:
-  - `id` id of the advisory or Vuln object
+  - `id` id of the advisory or Advisory object
   - `vulnerable_versions` range of versions affected
   - `url`
   - `title`
@@ -135,7 +135,7 @@ Fetches the packument and returns a Promise that resolves to a
 vulnerability object described above.
 
 Will perform required I/O to fetch package metadata from registry and
-read from cache.  Vulnerability information written back to cache.
+read from cache.  Advisory information written back to cache.
 
 ## Dependent Version Sampling
 

@@ -12,7 +12,7 @@ const pacote = {
   },
 }
 const cacache = require('cacache')
-const Vuln = require('../lib/vuln.js')
+const Advisory = require('../lib/advisory.js')
 
 const cache = t.testdir()
 
@@ -32,7 +32,7 @@ t.test('calculate fresh', async t => {
   const calc = new Calculator({ cache })
   const minimistFresh = await calc.calculate('minimist', advisories.minimist)
   t.match(minimistFresh, {
-    constructor: Vuln,
+    constructor: Advisory,
     updated: true,
     source: 1179,
     name: 'minimist',
@@ -49,7 +49,7 @@ t.test('calculate fresh', async t => {
   }
   const otherMinimistVuln = await calc.calculate('minimist', otherMinimistAdvisory)
   t.match(otherMinimistVuln, {
-    constructor: Vuln,
+    constructor: Advisory,
     updated: true,
     source: 123456,
     name: 'minimist',
@@ -63,7 +63,7 @@ t.test('calculate fresh', async t => {
 
   const mkdirpFresh = await calc.calculate('mkdirp', minimistFresh)
   t.match(mkdirpFresh, {
-    constructor: Vuln,
+    constructor: Advisory,
     type: 'metavuln',
     source: minimistFresh.id,
     name: 'mkdirp',
@@ -86,7 +86,7 @@ t.test('handle cache failures', async t => {
   const calc = new Calculator({ cache })
   const minimistFresh = await calc.calculate('minimist', advisories.minimist)
   t.match(minimistFresh, {
-    constructor: Vuln,
+    constructor: Advisory,
     updated: true,
     source: 1179,
     name: 'minimist',
@@ -103,7 +103,7 @@ t.test('calculate from cache', async t => {
   const calc = new Calculator({ cache })
   const minimistCached = await calc.calculate('minimist', advisories.minimist)
   t.match(minimistCached, {
-    constructor: Vuln,
+    constructor: Advisory,
     updated: false,
     source: 1179,
     name: 'minimist',
@@ -115,7 +115,7 @@ t.test('calculate from cache', async t => {
   })
   const mkdirpCached = await calc.calculate('mkdirp', minimistCached)
   t.match(mkdirpCached, {
-    constructor: Vuln,
+    constructor: Advisory,
     type: 'metavuln',
     source: minimistCached.id,
     name: 'mkdirp',

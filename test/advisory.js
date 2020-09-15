@@ -1,14 +1,14 @@
 const t = require('tap')
-const Vuln = require('../lib/vuln.js')
+const Advisory = require('../lib/advisory.js')
 const advisories = require('./fixtures/advisories/index.js')
 const packuments = require('./fixtures/packuments/index.js')
 const semver = require('semver')
 const so = { includePrerelease: true }
 
 t.test('create vulns from advisory', t => {
-  const v = new Vuln('semver', advisories.semver)
+  const v = new Advisory('semver', advisories.semver)
   t.match(v, {
-    constructor: Vuln,
+    constructor: Advisory,
     source: 31,
     name: 'semver',
     title: 'Regular Expression Denial of Service',
@@ -20,12 +20,12 @@ t.test('create vulns from advisory', t => {
     id: 'jETG9IyfV60PqVhvt3BAecPdQKL2CvXOXr1GeFeSsTkGn8YHi+dU93h8zcjK/xptcxeaYeUBBKmD83eafSecwA==',
     dependency: 'semver',
     updated: false,
-  }, 'vuln from advisory')
+  }, 'from raw advisory')
 
   // load without a cache entry
   v.load({}, packuments.semver)
   t.match(v, {
-    constructor: Vuln,
+    constructor: Advisory,
     source: 31,
     name: 'semver',
     title: 'Regular Expression Denial of Service',
@@ -42,13 +42,13 @@ t.test('create vulns from advisory', t => {
   }, 'updated from what was in the cache')
 
   const cached = JSON.parse(JSON.stringify(v))
-  t.match(cached, v, 'cached copy matches the vuln')
+  t.match(cached, v, 'cached copy matches the advisory')
 
-  const vFromCache = new Vuln('semver', advisories.semver)
+  const vFromCache = new Advisory('semver', advisories.semver)
   vFromCache.load(cached, packuments.semver)
 
   t.match(vFromCache, {
-    constructor: Vuln,
+    constructor: Advisory,
     source: 31,
     name: 'semver',
     title: 'Regular Expression Denial of Service',
@@ -64,7 +64,7 @@ t.test('create vulns from advisory', t => {
     packument: packuments.semver,
   }, 'not updated from what was in the cache')
 
-  const mv = new Vuln('pacote', v)
+  const mv = new Advisory('pacote', v)
   t.match(mv, {
     source: 'jETG9IyfV60PqVhvt3BAecPdQKL2CvXOXr1GeFeSsTkGn8YHi+dU93h8zcjK/xptcxeaYeUBBKmD83eafSecwA==',
     name: 'pacote',
@@ -96,7 +96,7 @@ t.test('create vulns from advisory', t => {
   }, 'loaded with empty cache')
 
   const mvCached = JSON.parse(JSON.stringify(mv))
-  const mvFromCache = new Vuln('pacote', vFromCache)
+  const mvFromCache = new Advisory('pacote', vFromCache)
   mvFromCache.load(mvCached, packuments.pacote)
   t.match(mvFromCache, {
     source: 'jETG9IyfV60PqVhvt3BAecPdQKL2CvXOXr1GeFeSsTkGn8YHi+dU93h8zcjK/xptcxeaYeUBBKmD83eafSecwA==',
@@ -113,7 +113,7 @@ t.test('create vulns from advisory', t => {
     packument: packuments.pacote,
   }, 'loaded from full cache')
 
-  const mvFromCacheUpdatedSource = new Vuln('pacote', v)
+  const mvFromCacheUpdatedSource = new Advisory('pacote', v)
   mvFromCacheUpdatedSource.load(mvCached, packuments.pacote)
   t.match(mvFromCacheUpdatedSource, {
     source: 'jETG9IyfV60PqVhvt3BAecPdQKL2CvXOXr1GeFeSsTkGn8YHi+dU93h8zcjK/xptcxeaYeUBBKmD83eafSecwA==',
@@ -130,9 +130,9 @@ t.test('create vulns from advisory', t => {
     packument: packuments.pacote,
   }, 'loaded from full cache with an advisory that was updated or not cached')
 
-  const minimistVuln = new Vuln('minimist', advisories.minimist)
+  const minimistVuln = new Advisory('minimist', advisories.minimist)
   minimistVuln.load({}, packuments.minimist)
-  const mkdirpVuln = new Vuln('mkdirp', minimistVuln)
+  const mkdirpVuln = new Advisory('mkdirp', minimistVuln)
   mkdirpVuln.load({}, packuments.mkdirp)
   t.match(mkdirpVuln, {
     source: '8MDgP3O3yM8t8dcQHSMUtmH4UKJrKhWmsmV44L4YChIzoahEo+G6j24b+4BPItZck5h5zQFPFD39kOC/789lfA==',
@@ -147,7 +147,7 @@ t.test('create vulns from advisory', t => {
     id: 'dOqvv9Jcyhu8PueSJZB+eZ0G/JI7mVomMmOBSku5SA7OScjvKmHq9jcLVFKmH1wsW2LcZATEOArlMxt/fa5LmA==',
     updated: true,
   }, 'metavuln that has some vulnerable versions')
-  const miniFromCache = new Vuln('minimist', advisories.minimist)
+  const miniFromCache = new Advisory('minimist', advisories.minimist)
   miniFromCache.load(JSON.parse(JSON.stringify(minimistVuln)), packuments.minimist)
 
   // make a version of mkdirp that depends on an impossible version of minimist
@@ -156,9 +156,9 @@ t.test('create vulns from advisory', t => {
     version: '99.99.99',
     dependencies: { minimist: '99.99.99' },
   }
-  const mkdirpVulnBorked = new Vuln('mkdirp', miniFromCache)
+  const mkdirpVulnBorked = new Advisory('mkdirp', miniFromCache)
   // this also covers the case when we load an otherwise cacheable
-  // vuln from cache, but the packument has new versions to check.
+  // advisory from cache, but the packument has new versions to check.
   mkdirpVulnBorked.load(JSON.parse(JSON.stringify(mkdirpVuln)), packuments.mkdirp)
   t.match(mkdirpVulnBorked, {
     source: '8MDgP3O3yM8t8dcQHSMUtmH4UKJrKhWmsmV44L4YChIzoahEo+G6j24b+4BPItZck5h5zQFPFD39kOC/789lfA==',
@@ -181,7 +181,7 @@ t.test('create vulns from advisory', t => {
     bundleDependencies: ['minimist'],
     dependencies: { minimist: '' },
   }
-  const mkdirpVulnBundled = new Vuln('mkdirp', minimistVuln)
+  const mkdirpVulnBundled = new Advisory('mkdirp', minimistVuln)
   mkdirpVulnBundled.load(JSON.parse(JSON.stringify(mkdirpVuln)), packuments.mkdirp)
   t.match(mkdirpVulnBundled, {
     source: '8MDgP3O3yM8t8dcQHSMUtmH4UKJrKhWmsmV44L4YChIzoahEo+G6j24b+4BPItZck5h5zQFPFD39kOC/789lfA==',
@@ -207,7 +207,7 @@ t.test('create vulns from advisory', t => {
   // ok now remove the weird versions, like they were unpublished
   delete packuments.mkdirp.versions['0.5.0-bundler']
   delete packuments.mkdirp.versions['99.99.99']
-  const mkdirpVulnRmVers = new Vuln('mkdirp', miniFromCache)
+  const mkdirpVulnRmVers = new Advisory('mkdirp', miniFromCache)
   mkdirpVulnRmVers.load(JSON.parse(JSON.stringify(mkdirpVulnBundled)), packuments.mkdirp)
   t.match(mkdirpVulnRmVers, {
     source: '8MDgP3O3yM8t8dcQHSMUtmH4UKJrKhWmsmV44L4YChIzoahEo+G6j24b+4BPItZck5h5zQFPFD39kOC/789lfA==',
@@ -241,17 +241,17 @@ t.test('create vulns from advisory', t => {
     actual: 'minimist',
   })
   t.throws(() => mkdirpVuln.load({}, mkdirpVuln.packument), {
-    message: 'vuln object already loaded'
+    message: 'advisory object already loaded'
   })
 
   t.end()
 })
 
 t.test('load with empty packument', t => {
-  const v = new Vuln('semver', advisories.semver)
+  const v = new Advisory('semver', advisories.semver)
   v.load({}, {name: 'semver', versions: {}})
   t.match(v, {
-    constructor: Vuln,
+    constructor: Advisory,
     source: 31,
     name: 'semver',
     dependency: 'semver',
@@ -265,6 +265,6 @@ t.test('load with empty packument', t => {
   })
 
   t.ok(v.testVersion('4.3.1'), 'version covered by range is vulnerable')
-  t.match(v, { vulnerableVersions: ['4.3.1'], versions: [] }, 'added to vuln set')
+  t.match(v, { vulnerableVersions: ['4.3.1'], versions: [] }, 'added to set')
   t.end()
 })
