@@ -107,13 +107,23 @@ installable) package version should be avoided.
 #### Cache Keys
 
 The cache keys are calculated by hashing together the `source` and `name`
-fields.
+fields, prefixing with the string `'security-advisory:'` and the name of
+the dependency that is vulnerable.
 
 So, a third-level metavulnerability might have a key like:
 
 ```
-hash(['foo', hash(['bar', hash(['baz', '123'])])])
+'security-advisory:foo:'+ hash(['foo', hash(['bar', hash(['baz', 123])])])
 ```
+
+Thus, the cached entry with this key would reflect the version of `foo`
+that is vulnerable by virtue of dependending exclusively on versions of
+`bar` which are vulnerable by virtue of depending exclusively on versions
+of `baz` which are vulnerable by virtue of advisory ID `123`.
+
+Loading advisory data entirely from cache without hitting an npm registry
+security advisory endpoint is not supported at this time, but technically
+possible, and likely to come in a future version of this library.
 
 ### `calculator = new Calculator(options)`
 
