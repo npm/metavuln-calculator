@@ -1,0 +1,7 @@
+{
+  "id": 1234567890,
+  "url": "https://npmjs.com/advisories/1234567890",
+  "title": "This is fake, and not a real advisory",
+  "severity": "low",
+  "vulnerable_versions": "<1.18.0"
+}

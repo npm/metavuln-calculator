@@ -270,3 +270,55 @@ t.test('load with empty packument', t => {
   t.match(v, { vulnerableVersions: ['4.3.1'], versions: [] }, 'added to set')
   t.end()
 })
+
+t.test('a package with a lot of prerelease versions', t => {
+  const a = advisories['graphql-codegen-plugin-helpers']
+  const v = new Advisory('@graphql-codegen/plugin-helpers', a)
+  v.load({}, packuments['graphql-codegen-plugin-helpers'])
+  const meta = new Advisory('@graphql-codegen/visitor-plugin-common', v)
+  meta.load({}, packuments['graphql-codegen-visitor-plugin-common'])
+  // kinda weird range here because git tags don't sort alphabetically lol
+  t.equal(meta.range, '<=1.17.8-alpha-f79b3113.0 || 1.17.13-alpha-7d3e78ce.0')
+  t.end()
+})
+
+t.test('a package with only prerelease versions', t => {
+  const a = {
+    id: 1234567890,
+    url: 'https://npmjs.com/advisories/1234567890',
+    title: 'lol yolo idfk whatever bbq',
+    vulnerable_versions: '<=0.0.0-pre.5',
+    severity: 'low',
+  }
+  const v = new Advisory('foo', a)
+  v.load({}, {
+    name: 'foo',
+    'dist-tags': { latest: '0.0.0-pre.7' },
+    versions: {
+      '0.0.0-pre.1': {},
+      '0.0.0-pre.2': {},
+      '0.0.0-pre.3': {},
+      '0.0.0-pre.4': {},
+      '0.0.0-pre.5': {},
+      '0.0.0-pre.6': {},
+      '0.0.0-pre.7': {},
+    },
+  })
+  const meta = new Advisory('bar', v)
+  meta.load({}, {
+    name: 'bar',
+    'dist-tags': { latest: '0.0.0-pre.7' },
+    versions: {
+      '0.0.0-pre.1': { dependencies: { foo: '0.0.0-pre.1' }},
+      '0.0.0-pre.2': { dependencies: { foo: '0.0.0-pre.2' }},
+      '0.0.0-pre.3': { dependencies: { foo: '0.0.0-pre.3' }},
+      '0.0.0-pre.4': { dependencies: { foo: '0.0.0-pre.4' }},
+      '0.0.0-pre.5': { dependencies: { foo: '0.0.0-pre.5' }},
+      '0.0.0-pre.6': { dependencies: { foo: '0.0.0-pre.6' }},
+      '0.0.0-pre.7': { dependencies: { foo: '0.0.0-pre.7' }},
+    },
+  })
+  t.equal(meta.range, '<=0.0.0-pre.5')
+  t.end()
+})
+
