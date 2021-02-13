@@ -322,3 +322,20 @@ t.test('a package with only prerelease versions', t => {
   t.end()
 })
 
+t.test('default to * when no vulnerable_versions specified', t => {
+  const name = 'no-vulnerable-versions-specified'
+  const v = new Advisory(name, advisories[name])
+  t.same(v, {
+    source: 123456789,
+    name: 'no-vulnerable-versions-specified',
+    dependency: 'no-vulnerable-versions-specified',
+    title: 'No versions, so all are vulnerable',
+    url: 'https://npmjs.com/advisories/123456789',
+    severity: 'low',
+    versions: [],
+    vulnerableVersions: [],
+    range: '*',
+    id: 'scjW9DzqGzCfXM/NEoe9MtD/27lWe9N5ezyJTS2HbpWLiB4FNH5GNenSysezlswMnQwIUtWkVPbWUqRJtUfUJA==',
+  }, 'default to all versions being considered vulnerable')
+  t.end()
+})
