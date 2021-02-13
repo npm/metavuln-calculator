@@ -142,7 +142,7 @@ t.test('create vulns from advisory', t => {
     url: null,
     severity: 'low',
     versions: semver.sort(Object.keys(packuments.mkdirp.versions)),
-    vulnerableVersions: ['0.4.1','0.4.2','0.5.0','0.5.1'],
+    vulnerableVersions: ['0.4.1', '0.4.2', '0.5.0', '0.5.1'],
     range: '0.4.1 - 0.5.1',
     id: 'dOqvv9Jcyhu8PueSJZB+eZ0G/JI7mVomMmOBSku5SA7OScjvKmHq9jcLVFKmH1wsW2LcZATEOArlMxt/fa5LmA==',
     updated: true,
@@ -168,7 +168,7 @@ t.test('create vulns from advisory', t => {
     url: null,
     severity: 'low',
     versions: semver.sort(Object.keys(packuments.mkdirp.versions)),
-    vulnerableVersions: ['0.4.1','0.4.2','0.5.0','0.5.1','99.99.99'],
+    vulnerableVersions: ['0.4.1', '0.4.2', '0.5.0', '0.5.1', '99.99.99'],
     range: '0.4.1 - 0.5.1 || >=99.99.99',
     id: 'dOqvv9Jcyhu8PueSJZB+eZ0G/JI7mVomMmOBSku5SA7OScjvKmHq9jcLVFKmH1wsW2LcZATEOArlMxt/fa5LmA==',
     updated: true,
@@ -191,7 +191,7 @@ t.test('create vulns from advisory', t => {
     url: null,
     severity: 'low',
     versions: semver.sort(Object.keys(packuments.mkdirp.versions)),
-    vulnerableVersions: ['0.4.1','0.4.2','0.5.0-bundler','0.5.0','0.5.1','99.99.99'],
+    vulnerableVersions: ['0.4.1', '0.4.2', '0.5.0-bundler', '0.5.0', '0.5.1', '99.99.99'],
     range: '0.4.1 - 0.5.1 || >=99.99.99',
     id: 'dOqvv9Jcyhu8PueSJZB+eZ0G/JI7mVomMmOBSku5SA7OScjvKmHq9jcLVFKmH1wsW2LcZATEOArlMxt/fa5LmA==',
     updated: true,
@@ -219,7 +219,7 @@ t.test('create vulns from advisory', t => {
     url: null,
     severity: 'low',
     versions: semver.sort(Object.keys(packuments.mkdirp.versions)),
-    vulnerableVersions: ['0.4.1','0.4.2','0.5.0','0.5.1'],
+    vulnerableVersions: ['0.4.1', '0.4.2', '0.5.0', '0.5.1'],
     range: '0.4.1 - 0.5.1',
     id: 'dOqvv9Jcyhu8PueSJZB+eZ0G/JI7mVomMmOBSku5SA7OScjvKmHq9jcLVFKmH1wsW2LcZATEOArlMxt/fa5LmA==',
     updated: true,
@@ -243,7 +243,7 @@ t.test('create vulns from advisory', t => {
     actual: 'minimist',
   })
   t.throws(() => mkdirpVuln.load({}, mkdirpVuln.packument), {
-    message: 'advisory object already loaded'
+    message: 'advisory object already loaded',
   })
 
   t.end()

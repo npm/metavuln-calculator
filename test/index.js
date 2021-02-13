@@ -40,7 +40,6 @@ t.test('calculate fresh', async t => {
     type: 'advisory',
     range: '<0.2.1 || >=1.0.0 <1.2.3',
     id: '8MDgP3O3yM8t8dcQHSMUtmH4UKJrKhWmsmV44L4YChIzoahEo+G6j24b+4BPItZck5h5zQFPFD39kOC/789lfA==',
-    updated: true,
   })
   // calculate another one for same package to hit the packument memoizing
   const otherMinimistAdvisory = {
@@ -50,7 +49,6 @@ t.test('calculate fresh', async t => {
   const otherMinimistVuln = await calc.calculate('minimist', otherMinimistAdvisory)
   t.match(otherMinimistVuln, {
     constructor: Advisory,
-    updated: true,
     source: 123456,
     name: 'minimist',
     dependency: 'minimist',
@@ -59,7 +57,6 @@ t.test('calculate fresh', async t => {
     id: 'WNi+Ammra045Ltb3M04AEe31yaYdjqUffX/iwhuagBKRTyZCzaNihh0prxpc4kVhVK6wXV1XDSXTGEqt1JusCA==',
     updated: true,
   })
-
 
   const mkdirpFresh = await calc.calculate('mkdirp', minimistFresh)
   t.match(mkdirpFresh, {
@@ -80,14 +77,17 @@ t.test('calculate fresh', async t => {
 t.test('handle cache failures', async t => {
   const { get, put } = cacache
   t.teardown(() => Object.assign(cacache, { get, put }))
-  cacache.get = async () => { throw new Error('nope') }
-  cacache.put = async () => { throw new Error('nope') }
+  cacache.get = async () => {
+    throw new Error('nope')
+  }
+  cacache.put = async () => {
+    throw new Error('nope')
+  }
 
   const calc = new Calculator({ cache })
   const minimistFresh = await calc.calculate('minimist', advisories.minimist)
   t.match(minimistFresh, {
     constructor: Advisory,
-    updated: true,
     source: 1179,
     name: 'minimist',
     dependency: 'minimist',
@@ -96,7 +96,7 @@ t.test('handle cache failures', async t => {
     id: '8MDgP3O3yM8t8dcQHSMUtmH4UKJrKhWmsmV44L4YChIzoahEo+G6j24b+4BPItZck5h5zQFPFD39kOC/789lfA==',
     updated: true, // <-- "updated" because cache read failed
   })
-  const mkdirpFresh = await calc.calculate('mkdirp', minimistFresh)
+  await calc.calculate('mkdirp', minimistFresh)
 })
 
 t.test('calculate from cache', async t => {
@@ -111,7 +111,6 @@ t.test('calculate from cache', async t => {
     type: 'advisory',
     range: '<0.2.1 || >=1.0.0 <1.2.3',
     id: '8MDgP3O3yM8t8dcQHSMUtmH4UKJrKhWmsmV44L4YChIzoahEo+G6j24b+4BPItZck5h5zQFPFD39kOC/789lfA==',
-    updated: false,
   })
   const mkdirpCached = await calc.calculate('mkdirp', minimistCached)
   t.match(mkdirpCached, {
