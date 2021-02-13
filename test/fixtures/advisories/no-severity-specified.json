@@ -1,0 +1,6 @@
+{
+  "id": 123456789,
+  "url": "https://npmjs.com/advisories/123456789",
+  "title": "No severity, so high severity",
+  "vulnerable_versions": "1.x"
+}

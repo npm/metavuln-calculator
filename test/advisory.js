@@ -339,3 +339,21 @@ t.test('default to * when no vulnerable_versions specified', t => {
   }, 'default to all versions being considered vulnerable')
   t.end()
 })
+
+t.test('default to "high" when no severity specified', t => {
+  const name = 'no-severity-specified'
+  const v = new Advisory(name, advisories[name])
+  t.same(v, {
+    source: 123456789,
+    name: 'no-severity-specified',
+    dependency: 'no-severity-specified',
+    title: 'No severity, so high severity',
+    url: 'https://npmjs.com/advisories/123456789',
+    severity: 'high',
+    versions: [],
+    vulnerableVersions: [],
+    range: '1.x',
+    id: 'ajZ5Jt7T99fpH0t8LgyBbDVivYlv/1OGrs/o+D8KmLDl+LKTjObUEt19cAZGaWdqiemuQOnvdZD577nKU+giIQ==',
+  }, 'default to all versions being considered vulnerable')
+  t.end()
+})
