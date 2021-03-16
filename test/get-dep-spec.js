@@ -18,3 +18,8 @@ t.equal(getDepSpec({
 }, 'dep'), '1', 'prefer optional deps over peer')
 t.equal(getDepSpec({ devDependencies: { dep: '1' } }, 'dep'), null,
   'ignore dev')
+t.equal(getDepSpec({
+  dependencies: null,
+  optionalDependencies: null,
+  peerDependencies: null
+}, 'dep'), null, 'ignore null fields')
