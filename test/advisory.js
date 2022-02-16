@@ -1,3 +1,5 @@
+/* eslint-disable max-len */
+
 const t = require('tap')
 const Advisory = require('../lib/advisory.js')
 const advisories = require('./fixtures/advisories/index.js')
@@ -251,7 +253,7 @@ t.test('create vulns from advisory', t => {
 
 t.test('load with empty packument', t => {
   const v = new Advisory('semver', advisories.semver)
-  v.load({}, {name: 'semver', versions: {}})
+  v.load({}, { name: 'semver', versions: {} })
   t.match(v, {
     constructor: Advisory,
     source: 31,
@@ -309,13 +311,13 @@ t.test('a package with only prerelease versions', t => {
     name: 'bar',
     'dist-tags': { latest: '0.0.0-pre.7' },
     versions: {
-      '0.0.0-pre.1': { dependencies: { foo: '0.0.0-pre.1' }},
-      '0.0.0-pre.2': { dependencies: { foo: '0.0.0-pre.2' }},
-      '0.0.0-pre.3': { dependencies: { foo: '0.0.0-pre.3' }},
-      '0.0.0-pre.4': { dependencies: { foo: '0.0.0-pre.4' }},
-      '0.0.0-pre.5': { dependencies: { foo: '0.0.0-pre.5' }},
-      '0.0.0-pre.6': { dependencies: { foo: '0.0.0-pre.6' }},
-      '0.0.0-pre.7': { dependencies: { foo: '0.0.0-pre.7' }},
+      '0.0.0-pre.1': { dependencies: { foo: '0.0.0-pre.1' } },
+      '0.0.0-pre.2': { dependencies: { foo: '0.0.0-pre.2' } },
+      '0.0.0-pre.3': { dependencies: { foo: '0.0.0-pre.3' } },
+      '0.0.0-pre.4': { dependencies: { foo: '0.0.0-pre.4' } },
+      '0.0.0-pre.5': { dependencies: { foo: '0.0.0-pre.5' } },
+      '0.0.0-pre.6': { dependencies: { foo: '0.0.0-pre.6' } },
+      '0.0.0-pre.7': { dependencies: { foo: '0.0.0-pre.7' } },
     },
   })
   t.equal(meta.range, '<=0.0.0-pre.5')
