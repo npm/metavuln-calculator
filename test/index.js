@@ -4,8 +4,9 @@ const packuments = require('./fixtures/packuments/index.js')
 const advisories = require('./fixtures/advisories/index.js')
 const pacote = {
   packument: async (name, options) => {
-    if (packuments[name])
+    if (packuments[name]) {
       return packuments[name]
+    }
     throw Object.assign(new Error('not found'), {
       code: 'E404',
     })
