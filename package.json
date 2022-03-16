@@ -36,7 +36,7 @@
   "dependencies": {
     "cacache": "^16.0.0",
     "json-parse-even-better-errors": "^2.3.1",
-    "pacote": "^13.0.3",
+    "pacote": "^13.0.5",
     "semver": "^7.3.5"
   },
   "engines": {
