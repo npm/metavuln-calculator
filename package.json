@@ -29,7 +29,7 @@
     "coverage-map": "map.js"
   },
   "devDependencies": {
-    "@npmcli/template-oss": "^2.9.2",
+    "@npmcli/template-oss": "^3.0.0",
     "require-inject": "^1.4.4",
     "tap": "^15.1.6"
   },
