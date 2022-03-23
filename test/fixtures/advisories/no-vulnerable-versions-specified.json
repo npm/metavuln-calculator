@@ -2,5 +2,12 @@
   "id": 123456789,
   "url": "https://npmjs.com/advisories/123456789",
   "title": "No versions, so all are vulnerable",
-  "severity": "low"
+  "severity": "low",
+  "cwe": [
+    "CWE-9876"
+  ],
+  "cvss": {
+    "score": 0,
+    "vectorString": null
+  }
 }
