@@ -33,8 +33,8 @@ t.test('create vulns from advisory', t => {
     title: 'Regular Expression Denial of Service',
     severity: 'moderate',
     versions: semver.sort(Object.keys(packuments.semver.versions)),
-    vulnerableVersions: semver.sort(Object.keys(packuments.semver.versions).filter(v =>
-      semver.satisfies(v, '<4.3.2', so))),
+    vulnerableVersions: semver.sort(Object.keys(packuments.semver.versions).filter(vulnerable =>
+      semver.satisfies(vulnerable, '<4.3.2', so))),
     url: 'https://npmjs.com/advisories/31',
     range: '<4.3.2',
     id: 'jETG9IyfV60PqVhvt3BAecPdQKL2CvXOXr1GeFeSsTkGn8YHi+dU93h8zcjK/xptcxeaYeUBBKmD83eafSecwA==',
@@ -56,8 +56,8 @@ t.test('create vulns from advisory', t => {
     title: 'Regular Expression Denial of Service',
     severity: 'moderate',
     versions: semver.sort(Object.keys(packuments.semver.versions)),
-    vulnerableVersions: semver.sort(Object.keys(packuments.semver.versions).filter(v =>
-      semver.satisfies(v, '<4.3.2', so))),
+    vulnerableVersions: semver.sort(Object.keys(packuments.semver.versions).filter(vulnerable =>
+      semver.satisfies(vulnerable, '<4.3.2', so))),
     url: 'https://npmjs.com/advisories/31',
     range: '<4.3.2',
     id: 'jETG9IyfV60PqVhvt3BAecPdQKL2CvXOXr1GeFeSsTkGn8YHi+dU93h8zcjK/xptcxeaYeUBBKmD83eafSecwA==',
