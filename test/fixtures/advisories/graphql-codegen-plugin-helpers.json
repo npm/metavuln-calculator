@@ -3,5 +3,12 @@
   "url": "https://npmjs.com/advisories/1234567890",
   "title": "This is fake, and not a real advisory",
   "severity": "low",
-  "vulnerable_versions": "<1.18.0"
+  "vulnerable_versions": "<1.18.0",
+  "cwe": [
+    "CWE-1234"
+  ],
+  "cvss": {
+    "score": 0,
+    "vectorString": null
+  }
 }

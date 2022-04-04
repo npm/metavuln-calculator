@@ -278,6 +278,7 @@ t.test('a package with a lot of prerelease versions', t => {
   const v = new Advisory('@graphql-codegen/plugin-helpers', a)
   v.load({}, packuments['graphql-codegen-plugin-helpers'])
   const meta = new Advisory('@graphql-codegen/visitor-plugin-common', v)
+  t.same(meta.cwe, ['CWE-1234'])
   meta.load({}, packuments['graphql-codegen-visitor-plugin-common'])
   // kinda weird range here because git tags don't sort alphabetically lol
   t.equal(meta.range, '<=1.17.8-alpha-f79b3113.0 || 1.17.13-alpha-7d3e78ce.0')
@@ -336,6 +337,11 @@ t.test('default to * when no vulnerable_versions specified', t => {
     severity: 'low',
     versions: [],
     vulnerableVersions: [],
+    cwe: ['CWE-9876'],
+    cvss: {
+      score: 0,
+      vectorString: null,
+    },
     range: '*',
     id: 'scjW9DzqGzCfXM/NEoe9MtD/27lWe9N5ezyJTS2HbpWLiB4FNH5GNenSysezlswMnQwIUtWkVPbWUqRJtUfUJA==',
   }, 'default to all versions being considered vulnerable')
@@ -354,6 +360,11 @@ t.test('default to "high" when no severity specified', t => {
     severity: 'high',
     versions: [],
     vulnerableVersions: [],
+    cwe: ['CWE-2345'],
+    cvss: {
+      score: 7.4,
+      vectorString: 'CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:N/I:H/A:H',
+    },
     range: '1.x',
     id: 'ajZ5Jt7T99fpH0t8LgyBbDVivYlv/1OGrs/o+D8KmLDl+LKTjObUEt19cAZGaWdqiemuQOnvdZD577nKU+giIQ==',
   }, 'default to all versions being considered vulnerable')
