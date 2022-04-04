@@ -1,5 +1,12 @@
 # Changelog
 
+## [3.1.0](https://github.com/npm/metavuln-calculator/compare/v3.0.1...v3.1.0) (2022-04-04)
+
+
+### Features
+
+* include cwe and cvss ([#34](https://github.com/npm/metavuln-calculator/issues/34)) ([5286f6b](https://github.com/npm/metavuln-calculator/commit/5286f6b9281312628baa8a4ea898da7a0ca2e394))
+
 ### [3.0.1](https://www.github.com/npm/metavuln-calculator/compare/v3.0.0...v3.0.1) (2022-03-14)
 
 
