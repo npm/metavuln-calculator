@@ -5,7 +5,7 @@
     "v9-legacy": "9.5.12"
   },
   "versions": {
-    "0.0.0": {
+    "0.0.0pre92": {
       "name": "pacote",
       "version": "0.0.0",
       "dist": {
