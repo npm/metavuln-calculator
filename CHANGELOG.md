@@ -1,5 +1,12 @@
 # Changelog
 
+## [3.1.1](https://github.com/npm/metavuln-calculator/compare/v3.1.0...v3.1.1) (2022-06-29)
+
+
+### Bug Fixes
+
+* don't throw on invalid semver versions ([#43](https://github.com/npm/metavuln-calculator/issues/43)) ([7c9f14c](https://github.com/npm/metavuln-calculator/commit/7c9f14cc48037186b76b7e483188a8f7dc9f603f))
+
 ## [3.1.0](https://github.com/npm/metavuln-calculator/compare/v3.0.1...v3.1.0) (2022-04-04)
 
 
