@@ -5,7 +5,7 @@ const Advisory = require('../lib/advisory.js')
 const advisories = require('./fixtures/advisories/index.js')
 const packuments = require('./fixtures/packuments/index.js')
 const semver = require('semver')
-const so = { includePrerelease: true }
+const so = { includePrerelease: true, loose: true }
 
 t.test('create vulns from advisory', t => {
   const v = new Advisory('semver', advisories.semver)
@@ -32,9 +32,9 @@ t.test('create vulns from advisory', t => {
     name: 'semver',
     title: 'Regular Expression Denial of Service',
     severity: 'moderate',
-    versions: semver.sort(Object.keys(packuments.semver.versions)),
+    versions: semver.sort(Object.keys(packuments.semver.versions), so),
     vulnerableVersions: semver.sort(Object.keys(packuments.semver.versions).filter(vulnerable =>
-      semver.satisfies(vulnerable, '<4.3.2', so))),
+      semver.satisfies(vulnerable, '<4.3.2', so)), so),
     url: 'https://npmjs.com/advisories/31',
     range: '<4.3.2',
     id: 'jETG9IyfV60PqVhvt3BAecPdQKL2CvXOXr1GeFeSsTkGn8YHi+dU93h8zcjK/xptcxeaYeUBBKmD83eafSecwA==',
@@ -55,9 +55,9 @@ t.test('create vulns from advisory', t => {
     name: 'semver',
     title: 'Regular Expression Denial of Service',
     severity: 'moderate',
-    versions: semver.sort(Object.keys(packuments.semver.versions)),
+    versions: semver.sort(Object.keys(packuments.semver.versions), so),
     vulnerableVersions: semver.sort(Object.keys(packuments.semver.versions).filter(vulnerable =>
-      semver.satisfies(vulnerable, '<4.3.2', so))),
+      semver.satisfies(vulnerable, '<4.3.2', so)), so),
     url: 'https://npmjs.com/advisories/31',
     range: '<4.3.2',
     id: 'jETG9IyfV60PqVhvt3BAecPdQKL2CvXOXr1GeFeSsTkGn8YHi+dU93h8zcjK/xptcxeaYeUBBKmD83eafSecwA==',
@@ -89,7 +89,7 @@ t.test('create vulns from advisory', t => {
     title: 'Depends on vulnerable versions of semver',
     url: null,
     severity: 'moderate',
-    versions: semver.sort(Object.keys(packuments.pacote.versions)),
+    versions: semver.sort(Object.keys(packuments.pacote.versions), so),
     vulnerableVersions: [],
     range: '<0.0.0-0',
     id: 'gJzFN5q57zHrhqiRn+lNQXirLlMUtC+8bFqEBGqE3XW/5VC880QTk2o/iRXUfJPT+jhc90QD+d9QIADI68nYlg==',
@@ -107,7 +107,7 @@ t.test('create vulns from advisory', t => {
     title: 'Depends on vulnerable versions of semver',
     url: null,
     severity: 'moderate',
-    versions: semver.sort(Object.keys(packuments.pacote.versions)),
+    versions: semver.sort(Object.keys(packuments.pacote.versions), so),
     vulnerableVersions: [],
     range: '<0.0.0-0',
     id: 'gJzFN5q57zHrhqiRn+lNQXirLlMUtC+8bFqEBGqE3XW/5VC880QTk2o/iRXUfJPT+jhc90QD+d9QIADI68nYlg==',
@@ -124,7 +124,7 @@ t.test('create vulns from advisory', t => {
     title: 'Depends on vulnerable versions of semver',
     url: null,
     severity: 'moderate',
-    versions: semver.sort(Object.keys(packuments.pacote.versions)),
+    versions: semver.sort(Object.keys(packuments.pacote.versions), so),
     vulnerableVersions: [],
     range: '<0.0.0-0',
     id: 'gJzFN5q57zHrhqiRn+lNQXirLlMUtC+8bFqEBGqE3XW/5VC880QTk2o/iRXUfJPT+jhc90QD+d9QIADI68nYlg==',
@@ -143,7 +143,7 @@ t.test('create vulns from advisory', t => {
     title: 'Depends on vulnerable versions of minimist',
     url: null,
     severity: 'low',
-    versions: semver.sort(Object.keys(packuments.mkdirp.versions)),
+    versions: semver.sort(Object.keys(packuments.mkdirp.versions), so),
     vulnerableVersions: ['0.4.1', '0.4.2', '0.5.0', '0.5.1'],
     range: '0.4.1 - 0.5.1',
     id: 'dOqvv9Jcyhu8PueSJZB+eZ0G/JI7mVomMmOBSku5SA7OScjvKmHq9jcLVFKmH1wsW2LcZATEOArlMxt/fa5LmA==',
@@ -169,7 +169,7 @@ t.test('create vulns from advisory', t => {
     title: 'Depends on vulnerable versions of minimist',
     url: null,
     severity: 'low',
-    versions: semver.sort(Object.keys(packuments.mkdirp.versions)),
+    versions: semver.sort(Object.keys(packuments.mkdirp.versions), so),
     vulnerableVersions: ['0.4.1', '0.4.2', '0.5.0', '0.5.1', '99.99.99'],
     range: '0.4.1 - 0.5.1 || >=99.99.99',
     id: 'dOqvv9Jcyhu8PueSJZB+eZ0G/JI7mVomMmOBSku5SA7OScjvKmHq9jcLVFKmH1wsW2LcZATEOArlMxt/fa5LmA==',
@@ -192,7 +192,7 @@ t.test('create vulns from advisory', t => {
     title: 'Depends on vulnerable versions of minimist',
     url: null,
     severity: 'low',
-    versions: semver.sort(Object.keys(packuments.mkdirp.versions)),
+    versions: semver.sort(Object.keys(packuments.mkdirp.versions), so),
     vulnerableVersions: ['0.4.1', '0.4.2', '0.5.0-bundler', '0.5.0', '0.5.1', '99.99.99'],
     range: '0.4.1 - 0.5.1 || >=99.99.99',
     id: 'dOqvv9Jcyhu8PueSJZB+eZ0G/JI7mVomMmOBSku5SA7OScjvKmHq9jcLVFKmH1wsW2LcZATEOArlMxt/fa5LmA==',
@@ -220,7 +220,7 @@ t.test('create vulns from advisory', t => {
     title: 'Depends on vulnerable versions of minimist',
     url: null,
     severity: 'low',
-    versions: semver.sort(Object.keys(packuments.mkdirp.versions)),
+    versions: semver.sort(Object.keys(packuments.mkdirp.versions), so),
     vulnerableVersions: ['0.4.1', '0.4.2', '0.5.0', '0.5.1'],
     range: '0.4.1 - 0.5.1',
     id: 'dOqvv9Jcyhu8PueSJZB+eZ0G/JI7mVomMmOBSku5SA7OScjvKmHq9jcLVFKmH1wsW2LcZATEOArlMxt/fa5LmA==',
