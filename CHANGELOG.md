@@ -1,5 +1,19 @@
 # Changelog
 
+## [4.0.0-pre.0](https://github.com/npm/metavuln-calculator/compare/v3.1.1...v4.0.0-pre.0) (2022-09-23)
+
+### ⚠️ BREAKING CHANGES
+
+* `@npmcli/metavuln-calculator` is now compatible with the following semver range for node: `^14.17.0 || ^16.13.0 || >=18.0.0`
+
+### Features
+
+* [`a20ebd2`](https://github.com/npm/metavuln-calculator/commit/a20ebd2f3713f7909a8f92e4239bf2ab8dda9756) [#55](https://github.com/npm/metavuln-calculator/pull/55) postinstall for dependabot template-oss PR (@lukekarrys)
+
+### Dependencies
+
+* [`cfb8511`](https://github.com/npm/metavuln-calculator/commit/cfb8511a7ed3cb0b8cdec1617583b098150f87b9) [#57](https://github.com/npm/metavuln-calculator/pull/57) pacote@14||14.pre
+
 ## [3.1.1](https://github.com/npm/metavuln-calculator/compare/v3.1.0...v3.1.1) (2022-06-29)
 
 
