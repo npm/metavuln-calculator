@@ -35,14 +35,17 @@
   "devDependencies": {
     "@npmcli/eslint-config": "^3.0.1",
     "@npmcli/template-oss": "4.4.2",
+    "pacote": "^14.0.0 || ^14.0.0-pre.0",
     "require-inject": "^1.4.4",
     "tap": "^16.0.1"
   },
   "dependencies": {
     "cacache": "^16.0.0",
     "json-parse-even-better-errors": "^2.3.1",
-    "pacote": "^14.0.0 || ^14.0.0-pre.0",
     "semver": "^7.3.5"
+  },
+  "peerDependencies": {
+    "pacote": "^14.0.0 || ^14.0.0-pre.0"
   },
   "engines": {
     "node": "^14.17.0 || ^16.13.0 || >=18.0.0"
