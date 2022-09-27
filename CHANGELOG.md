@@ -1,5 +1,15 @@
 # Changelog
 
+## [4.0.0-pre.1](https://github.com/npm/metavuln-calculator/compare/v4.0.0-pre.0...v4.0.0-pre.1) (2022-09-27)
+
+### ⚠️ BREAKING CHANGES
+
+* this package now requires `pacote` to be a peer dependency
+
+### Features
+
+* [`da497ed`](https://github.com/npm/metavuln-calculator/commit/da497ed27a71bbeb5558026c424f7ce5a78f4310) [#58](https://github.com/npm/metavuln-calculator/pull/58) move `pacote` to a peer dependency (@lukekarrys)
+
 ## [4.0.0-pre.0](https://github.com/npm/metavuln-calculator/compare/v3.1.1...v4.0.0-pre.0) (2022-09-23)
 
 ### ⚠️ BREAKING CHANGES
