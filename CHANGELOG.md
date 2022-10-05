@@ -1,5 +1,11 @@
 # Changelog
 
+## [4.0.0](https://github.com/npm/metavuln-calculator/compare/v4.0.0-pre.0...v4.0.0) (2022-10-05)
+
+### Dependencies
+
+* [`cfadd1b`](https://github.com/npm/metavuln-calculator/commit/cfadd1b203b99e364ba24326b3350236268bb3fa) [#63](https://github.com/npm/metavuln-calculator/pull/63) remove pacote@14 prerelease ranges (#63)
+
 ## [4.0.0-pre.0](https://github.com/npm/metavuln-calculator/compare/v3.1.1...v4.0.0-pre.0) (2022-09-23)
 
 ### ⚠️ BREAKING CHANGES
