@@ -40,7 +40,7 @@
   },
   "dependencies": {
     "cacache": "^16.0.0",
-    "json-parse-even-better-errors": "^2.3.1",
+    "json-parse-even-better-errors": "^3.0.0",
     "pacote": "^14.0.0",
     "semver": "^7.3.5"
   },
