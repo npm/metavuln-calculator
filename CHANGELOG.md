@@ -1,5 +1,17 @@
 # Changelog
 
+## [5.0.0](https://github.com/npm/metavuln-calculator/compare/v4.0.0...v5.0.0) (2022-10-13)
+
+### ⚠️ BREAKING CHANGES
+
+* this module no longer attempts to change file ownership automatically
+
+### Dependencies
+
+* [`56c1950`](https://github.com/npm/metavuln-calculator/commit/56c19503e3211fbc046d2c7c556f6b5b2ad04e38) [#69](https://github.com/npm/metavuln-calculator/pull/69) bump cacache from 16.1.3 to 17.0.0 (#69)
+* [`e31f928`](https://github.com/npm/metavuln-calculator/commit/e31f9284962b165500e9d2aa4a577b954205cc57) [#70](https://github.com/npm/metavuln-calculator/pull/70) bump pacote from 14.0.0 to 15.0.0 (#70)
+* [`2154d72`](https://github.com/npm/metavuln-calculator/commit/2154d72b0c881be7c3ca68bd1fe1b89c1f865831) [#67](https://github.com/npm/metavuln-calculator/pull/67) bump json-parse-even-better-errors from 2.3.1 to 3.0.0
+
 ## [4.0.0](https://github.com/npm/metavuln-calculator/compare/v4.0.0-pre.0...v4.0.0) (2022-10-05)
 
 ### Dependencies
