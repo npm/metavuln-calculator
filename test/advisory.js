@@ -273,6 +273,28 @@ t.test('load with empty packument', t => {
   t.end()
 })
 
+t.test('load with no package version in packument', t => {
+  const v = new Advisory('semver', advisories.semver)
+  v.load({}, { name: 'semver' })
+  t.match(v, {
+    constructor: Advisory,
+    source: 31,
+    name: 'semver',
+    dependency: 'semver',
+    title: 'Regular Expression Denial of Service',
+    url: 'https://npmjs.com/advisories/31',
+    severity: 'moderate',
+    versions: [],
+    vulnerableVersions: [],
+    range: '<4.3.2',
+    id: 'jETG9IyfV60PqVhvt3BAecPdQKL2CvXOXr1GeFeSsTkGn8YHi+dU93h8zcjK/xptcxeaYeUBBKmD83eafSecwA==',
+  })
+
+  t.ok(v.testVersion('4.3.1'), 'version covered by range is vulnerable')
+  t.match(v, { vulnerableVersions: ['4.3.1'], versions: [] }, 'added to set')
+  t.end()
+})
+
 t.test('a package with a lot of prerelease versions', t => {
   const a = advisories['graphql-codegen-plugin-helpers']
   const v = new Advisory('@graphql-codegen/plugin-helpers', a)
