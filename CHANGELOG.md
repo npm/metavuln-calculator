@@ -1,5 +1,11 @@
 # Changelog
 
+## [5.0.1](https://github.com/npm/metavuln-calculator/compare/v5.0.0...v5.0.1) (2023-04-12)
+
+### Bug Fixes
+
+* [`d89da3f`](https://github.com/npm/metavuln-calculator/commit/d89da3fdeddd3aa8c6255ccf86741dda9dbaed59) [#85](https://github.com/npm/metavuln-calculator/pull/85) support packument without versions (#85) (@vigan-abd)
+
 ## [5.0.0](https://github.com/npm/metavuln-calculator/compare/v4.0.0...v5.0.0) (2022-10-13)
 
 ### ⚠️ BREAKING CHANGES
