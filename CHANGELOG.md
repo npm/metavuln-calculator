@@ -1,5 +1,15 @@
 # Changelog
 
+## [6.0.0](https://github.com/npm/metavuln-calculator/compare/v5.0.1...v6.0.0) (2023-08-14)
+
+### ⚠️ BREAKING CHANGES
+
+* support for node 14 has been removed
+
+### Bug Fixes
+
+* [`0e95702`](https://github.com/npm/metavuln-calculator/commit/0e957021b882a930f4fae5653ee0bbaa434018d1) [#94](https://github.com/npm/metavuln-calculator/pull/94) drop node14 support (@lukekarrys)
+
 ## [5.0.1](https://github.com/npm/metavuln-calculator/compare/v5.0.0...v5.0.1) (2023-04-12)
 
 ### Bug Fixes
