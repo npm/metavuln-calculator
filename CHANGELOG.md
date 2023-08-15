@@ -1,5 +1,20 @@
 # Changelog
 
+## [7.0.0](https://github.com/npm/metavuln-calculator/compare/v6.0.1...v7.0.0) (2023-08-15)
+
+### ⚠️ BREAKING CHANGES
+
+* support for node <=16.13 has been removed
+
+### Bug Fixes
+
+* [`071449d`](https://github.com/npm/metavuln-calculator/commit/071449da2467c0795406b17cfc0962df2d0a9d3c) [#99](https://github.com/npm/metavuln-calculator/pull/99) drop node 16.13.x support (@lukekarrys)
+
+### Dependencies
+
+* [`d5ba3e4`](https://github.com/npm/metavuln-calculator/commit/d5ba3e4332896370d344723f65fd07e7f50af752) [#101](https://github.com/npm/metavuln-calculator/pull/101) bump pacote from 16.0.0 to 17.0.0
+* [`49e9861`](https://github.com/npm/metavuln-calculator/commit/49e986183484a8323882cd1d542cb5850b09b9c2) [#97](https://github.com/npm/metavuln-calculator/pull/97) bump cacache from 17.1.4 to 18.0.0
+
 ## [6.0.1](https://github.com/npm/metavuln-calculator/compare/v6.0.0...v6.0.1) (2023-08-14)
 
 ### Dependencies
