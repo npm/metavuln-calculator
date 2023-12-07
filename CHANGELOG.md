@@ -1,5 +1,18 @@
 # Changelog
 
+## [7.0.1](https://github.com/npm/metavuln-calculator/compare/v7.0.0...v7.0.1) (2023-12-07)
+
+### Chores
+
+* [`483715d`](https://github.com/npm/metavuln-calculator/commit/483715da3778b367fbe4d6459dcc392adf186a89) [#126](https://github.com/npm/metavuln-calculator/pull/126) postinstall for dependabot template-oss PR (@lukekarrys)
+* [`deeccee`](https://github.com/npm/metavuln-calculator/commit/deeccee2dfb39726d52c934dd52bfaa3aab129fd) [#126](https://github.com/npm/metavuln-calculator/pull/126) bump @npmcli/template-oss from 4.21.1 to 4.21.3 (@dependabot[bot])
+* [`c381ee2`](https://github.com/npm/metavuln-calculator/commit/c381ee245236ff4aab194b2859ff9fc5c1c72b71) [#123](https://github.com/npm/metavuln-calculator/pull/123) postinstall for dependabot template-oss PR (@lukekarrys)
+* [`7e706e9`](https://github.com/npm/metavuln-calculator/commit/7e706e99b0dbbe888cdacce0f0c145c33a256554) [#123](https://github.com/npm/metavuln-calculator/pull/123) bump @npmcli/template-oss from 4.19.0 to 4.21.1 (@dependabot[bot])
+* [`19e9001`](https://github.com/npm/metavuln-calculator/commit/19e90015a067d4b8e5ef102efa379a7f045c056d) [#103](https://github.com/npm/metavuln-calculator/pull/103) postinstall for dependabot template-oss PR (@lukekarrys)
+* [`5a93b83`](https://github.com/npm/metavuln-calculator/commit/5a93b836a8d0f448a6f6f3402ec2a0c4c27136ec) [#103](https://github.com/npm/metavuln-calculator/pull/103) bump @npmcli/template-oss from 4.18.1 to 4.19.0 (@dependabot[bot])
+* [`a21415c`](https://github.com/npm/metavuln-calculator/commit/a21415c5a8a6e8c87222ea461adcb4c0fedfb1bc) [#102](https://github.com/npm/metavuln-calculator/pull/102) postinstall for dependabot template-oss PR (@lukekarrys)
+* [`fcb70ff`](https://github.com/npm/metavuln-calculator/commit/fcb70ff2d08b52d5dc56af429d4c0b6608f1a51e) [#102](https://github.com/npm/metavuln-calculator/pull/102) bump @npmcli/template-oss from 4.18.0 to 4.18.1 (@dependabot[bot])
+
 ## [7.0.0](https://github.com/npm/metavuln-calculator/compare/v6.0.1...v7.0.0) (2023-08-15)
 
 ### ⚠️ BREAKING CHANGES
