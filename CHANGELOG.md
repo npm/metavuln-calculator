@@ -1,5 +1,16 @@
 # Changelog
 
+## [7.0.1](https://github.com/npm/metavuln-calculator/compare/v7.0.0...v7.0.1) (2024-04-15)
+
+### Dependencies
+
+* [`a23259a`](https://github.com/npm/metavuln-calculator/commit/a23259a8b4516c8e485b614d40657f8ffa99dd96) [#131](https://github.com/npm/metavuln-calculator/pull/131) bump pacote from 17.0.7 to 18.0.0 (#131) (@dependabot[bot])
+
+### Chores
+
+* [`bd72803`](https://github.com/npm/metavuln-calculator/commit/bd728031aac8bfb6f71d3220cb3d5edbcbf8f2a1) [#130](https://github.com/npm/metavuln-calculator/pull/130) postinstall for dependabot template-oss PR (@lukekarrys)
+* [`290eb7c`](https://github.com/npm/metavuln-calculator/commit/290eb7c0b74fef50b2a07fb7bb0da11ed06c3177) [#130](https://github.com/npm/metavuln-calculator/pull/130) bump @npmcli/template-oss from 4.21.3 to 4.21.4 (@dependabot[bot])
+
 ## [7.0.0](https://github.com/npm/metavuln-calculator/compare/v6.0.1...v7.0.0) (2023-08-15)
 
 ### ⚠️ BREAKING CHANGES
