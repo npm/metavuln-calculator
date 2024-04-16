@@ -1,5 +1,15 @@
 # Changelog
 
+## [7.1.0](https://github.com/npm/metavuln-calculator/compare/v7.0.1...v7.1.0) (2024-04-16)
+
+### Features
+
+* [`beb5c1f`](https://github.com/npm/metavuln-calculator/commit/beb5c1f91b041113a5ac92ec91da4ce3737c8580) [#132](https://github.com/npm/metavuln-calculator/pull/132) emit timers with proc-log (@lukekarrys)
+
+### Dependencies
+
+* [`434f93e`](https://github.com/npm/metavuln-calculator/commit/434f93ea8faab8bf9ae50afeb739f0b75eba9c14) [#132](https://github.com/npm/metavuln-calculator/pull/132) `proc-log@4.1.0`
+
 ## [7.0.1](https://github.com/npm/metavuln-calculator/compare/v7.0.0...v7.0.1) (2024-04-15)
 
 ### Dependencies
