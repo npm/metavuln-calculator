@@ -1,5 +1,16 @@
 # Changelog
 
+## [7.1.1](https://github.com/npm/metavuln-calculator/compare/v7.1.0...v7.1.1) (2024-05-04)
+
+### Bug Fixes
+
+* [`1631d76`](https://github.com/npm/metavuln-calculator/commit/1631d76897b249983ab1ee4a9962ff6dc595af06) [#134](https://github.com/npm/metavuln-calculator/pull/134) linting: no-unused-vars (@lukekarrys)
+
+### Chores
+
+* [`c506f88`](https://github.com/npm/metavuln-calculator/commit/c506f886c6318e5760239cb444ef35c662ad4dad) [#134](https://github.com/npm/metavuln-calculator/pull/134) bump @npmcli/template-oss to 4.22.0 (@lukekarrys)
+* [`b81c6ed`](https://github.com/npm/metavuln-calculator/commit/b81c6edb86423aa86e7c49278264204aa0065560) [#134](https://github.com/npm/metavuln-calculator/pull/134) postinstall for dependabot template-oss PR (@lukekarrys)
+
 ## [7.1.0](https://github.com/npm/metavuln-calculator/compare/v7.0.1...v7.1.0) (2024-04-16)
 
 ### Features
