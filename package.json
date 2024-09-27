@@ -42,7 +42,7 @@
     "cacache": "^19.0.0",
     "json-parse-even-better-errors": "^4.0.0",
     "pacote": "^19.0.0",
-    "proc-log": "^4.1.0",
+    "proc-log": "^5.0.0",
     "semver": "^7.3.5"
   },
   "engines": {
