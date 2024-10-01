@@ -1,5 +1,21 @@
 # Changelog
 
+## [8.0.0](https://github.com/npm/metavuln-calculator/compare/v7.1.1...v8.0.0) (2024-10-01)
+### ⚠️ BREAKING CHANGES
+* `@npmcli/metavuln-calculator` now supports node `^18.17.0 || >=20.5.0`
+### Bug Fixes
+* [`76124e1`](https://github.com/npm/metavuln-calculator/commit/76124e1bd9c6a016146c1dd728cc980f6104fcd5) [#152](https://github.com/npm/metavuln-calculator/pull/152) align to npm 10 node engine range (@reggi)
+### Dependencies
+* [`397f279`](https://github.com/npm/metavuln-calculator/commit/397f279faefa34b856783bf9e815869ec9148989) [#152](https://github.com/npm/metavuln-calculator/pull/152) `proc-log@5.0.0`
+* [`47f88c9`](https://github.com/npm/metavuln-calculator/commit/47f88c99c19a32ef54162fa65378f672173726b2) [#152](https://github.com/npm/metavuln-calculator/pull/152) `pacote@19.0.0`
+* [`aefff63`](https://github.com/npm/metavuln-calculator/commit/aefff631dd4907cca93e65522cdded865c3c5c12) [#152](https://github.com/npm/metavuln-calculator/pull/152) `json-parse-even-better-errors@4.0.0`
+* [`348ed6d`](https://github.com/npm/metavuln-calculator/commit/348ed6dbcee832e6530ce99fe6ab5bac0da7f4df) [#152](https://github.com/npm/metavuln-calculator/pull/152) `cacache@19.0.0`
+### Chores
+* [`a13b312`](https://github.com/npm/metavuln-calculator/commit/a13b31278cf6bfdc6ba0205736eb7d9a2fe2e9ff) [#152](https://github.com/npm/metavuln-calculator/pull/152) run template-oss-apply (@reggi)
+* [`1db6387`](https://github.com/npm/metavuln-calculator/commit/1db638776d5b60b68fbc0ad78fcb30bf0ec4c16c) [#146](https://github.com/npm/metavuln-calculator/pull/146) bump @npmcli/eslint-config from 4.0.5 to 5.0.0 (@dependabot[bot])
+* [`5b3ccdf`](https://github.com/npm/metavuln-calculator/commit/5b3ccdf32ee815e255a91899fab51d6290adcfce) [#147](https://github.com/npm/metavuln-calculator/pull/147) postinstall for dependabot template-oss PR (@hashtagchris)
+* [`91ab93e`](https://github.com/npm/metavuln-calculator/commit/91ab93eec74d9ded622c76d6f8d1f3e500aaf0ac) [#147](https://github.com/npm/metavuln-calculator/pull/147) bump @npmcli/template-oss from 4.23.1 to 4.23.3 (@dependabot[bot])
+
 ## [7.1.1](https://github.com/npm/metavuln-calculator/compare/v7.1.0...v7.1.1) (2024-05-04)
 
 ### Bug Fixes
