@@ -1,5 +1,9 @@
 # Changelog
 
+## [8.0.1](https://github.com/npm/metavuln-calculator/compare/v8.0.0...v8.0.1) (2024-10-17)
+### Dependencies
+* [`c92af1b`](https://github.com/npm/metavuln-calculator/commit/c92af1b1a63bc9d554046c6d1b93684fbcaa56fc) [#157](https://github.com/npm/metavuln-calculator/pull/157) bump pacote from ^19.0.0 to ^20.0.0 (#157)
+
 ## [8.0.0](https://github.com/npm/metavuln-calculator/compare/v7.1.1...v8.0.0) (2024-10-01)
 ### ⚠️ BREAKING CHANGES
 * `@npmcli/metavuln-calculator` now supports node `^18.17.0 || >=20.5.0`
