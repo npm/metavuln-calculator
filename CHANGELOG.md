@@ -1,5 +1,15 @@
 # Changelog
 
+## [9.0.0](https://github.com/npm/metavuln-calculator/compare/v8.0.1...v9.0.0) (2024-11-25)
+### ⚠️ BREAKING CHANGES
+* this module is now compatible with the following node versions: ^20.17.0 || >=22.9.0
+### Bug Fixes
+* [`af594f0`](https://github.com/npm/metavuln-calculator/commit/af594f045c0f40a5513d059ed5fc22931c284dd7) update node engines to ^20.17.0 || >=22.9.0 (#159) (@wraithgar)
+### Dependencies
+* [`f6e645c`](https://github.com/npm/metavuln-calculator/commit/f6e645ce0b47867a0dcff8840aeb7545d7eea21a) [#161](https://github.com/npm/metavuln-calculator/pull/161) `pacote@21.0.0` (#161)
+### Chores
+* [`efcc950`](https://github.com/npm/metavuln-calculator/commit/efcc950f3ee44b04415c2dd2f04f83564aa26705) [#156](https://github.com/npm/metavuln-calculator/pull/156) bump @npmcli/template-oss from 4.23.3 to 4.23.4 (#156) (@dependabot[bot], @npm-cli-bot)
+
 ## [8.0.1](https://github.com/npm/metavuln-calculator/compare/v8.0.0...v8.0.1) (2024-10-17)
 ### Dependencies
 * [`c92af1b`](https://github.com/npm/metavuln-calculator/commit/c92af1b1a63bc9d554046c6d1b93684fbcaa56fc) [#157](https://github.com/npm/metavuln-calculator/pull/157) bump pacote from ^19.0.0 to ^20.0.0 (#157)
