@@ -392,3 +392,68 @@ t.test('default to "high" when no severity specified', t => {
   }, 'default to all versions being considered vulnerable')
   t.end()
 })
+
+t.test('prerelease versions are properly detected in testSpec', t => {
+  const vulnerableDepAdvisory = {
+    id: 9999999,
+    url: 'https://npmjs.com/advisories/9999999',
+    title: 'Vulnerability in prerelease versions',
+    vulnerable_versions: '>=1.4.4-lts.1 <2.0.0',
+    severity: 'moderate',
+  }
+
+  // create advisory for the vulnerable dependency
+  const depAdvisory = new Advisory('vulnerable-lib', vulnerableDepAdvisory)
+  depAdvisory.load({}, {
+    name: 'vulnerable-lib',
+    versions: {
+      '1.4.3': {},
+      '1.4.4-lts.1': {},
+      '1.4.5-lts.1': {},
+      '1.4.6-lts.1': {},
+      '1.5.0': {},
+      '2.0.0': {},
+    },
+  })
+
+  // create a metavulnerability for a package that depends on the vulnerable lib
+  const metaVuln = new Advisory('consumer-package', depAdvisory)
+  metaVuln.load({}, {
+    name: 'consumer-package',
+    versions: {
+      '1.0.0': { dependencies: { 'vulnerable-lib': '>=1.4.4-lts.1 <2.0.0' } },
+      '1.1.0': { dependencies: { 'vulnerable-lib': '^1.4.3' } },
+      '1.2.0': { dependencies: { 'vulnerable-lib': '^2.0.0' } },
+    },
+  })
+
+  // test that the spec correctly identifies vulnerability
+  t.ok(metaVuln.testSpec('>=1.4.4-lts.1 <2.0.0'),
+    'spec with prerelease range should be detected as vulnerable')
+
+  // test that a version in the vulnerable range is detected
+  t.ok(metaVuln.testVersion('1.0.0'),
+    'version 1.0.0 should be vulnerable (depends on prerelease range)')
+
+  // test that a version outside the vulnerable range is not detected
+  t.notOk(metaVuln.testVersion('1.1.0'),
+    'version 1.1.0 should not be vulnerable (depends on ^1.4.3)')
+
+  t.notOk(metaVuln.testVersion('1.2.0'),
+    'version 1.2.0 should not be vulnerable (depends on ^2.0.0)')
+
+  // verify that specific prerelease versions are marked as vulnerable
+  t.ok(depAdvisory.testVersion('1.4.4-lts.1'),
+    'prerelease version 1.4.4-lts.1 should be vulnerable')
+
+  t.ok(depAdvisory.testVersion('1.4.5-lts.1'),
+    'prerelease version 1.4.5-lts.1 should be vulnerable')
+
+  t.notOk(depAdvisory.testVersion('1.4.3'),
+    'version 1.4.3 should not be vulnerable (before prerelease range)')
+
+  t.notOk(depAdvisory.testVersion('2.0.0'),
+    'version 2.0.0 should not be vulnerable (after range)')
+
+  t.end()
+})
