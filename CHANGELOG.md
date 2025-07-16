@@ -1,5 +1,13 @@
 # Changelog
 
+## [9.0.1](https://github.com/npm/metavuln-calculator/compare/v9.0.0...v9.0.1) (2025-07-16)
+### Bug Fixes
+* [`19e5506`](https://github.com/npm/metavuln-calculator/commit/19e5506b01c8d0612c72c0d87acc5ea4d676d6ea) [#166](https://github.com/npm/metavuln-calculator/pull/166) include prerelease versions in spec vulnerability testing (#166) (@Isolumi)
+### Chores
+* [`7b34977`](https://github.com/npm/metavuln-calculator/commit/7b349772a3c4eb69e70441352a16226e1ee35ade) [#169](https://github.com/npm/metavuln-calculator/pull/169) template-oss-apply for workflow flags (#169) (@wraithgar)
+* [`0449ac8`](https://github.com/npm/metavuln-calculator/commit/0449ac877654b30a6c35ab84066bb637cd18e717) [#164](https://github.com/npm/metavuln-calculator/pull/164) postinstall workflow updates (#164) (@owlstronaut)
+* [`0f3e7ae`](https://github.com/npm/metavuln-calculator/commit/0f3e7ae9c7d0dfd74f5e79fc3b6a599b9850182d) [#167](https://github.com/npm/metavuln-calculator/pull/167) bump @npmcli/template-oss from 4.24.4 to 4.25.0 (#167) (@dependabot[bot], @npm-cli-bot)
+
 ## [9.0.0](https://github.com/npm/metavuln-calculator/compare/v8.0.1...v9.0.0) (2024-11-25)
 ### ⚠️ BREAKING CHANGES
 * this module is now compatible with the following node versions: ^20.17.0 || >=22.9.0
