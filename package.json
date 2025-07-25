@@ -1,6 +1,6 @@
 {
   "name": "@npmcli/metavuln-calculator",
-  "version": "9.0.1",
+  "version": "9.0.2",
   "main": "lib/index.js",
   "files": [
     "bin/",
