@@ -1,5 +1,9 @@
 # Changelog
 
+## [9.0.2](https://github.com/npm/metavuln-calculator/compare/v9.0.1...v9.0.2) (2025-07-25)
+### Dependencies
+* [`b603409`](https://github.com/npm/metavuln-calculator/commit/b6034097d6421db941f725a886ce80af665ba900) [#170](https://github.com/npm/metavuln-calculator/pull/170) bump cacache from 19.0.1 to 20.0.0 (#170) (@dependabot[bot])
+
 ## [9.0.1](https://github.com/npm/metavuln-calculator/compare/v9.0.0...v9.0.1) (2025-07-16)
 ### Bug Fixes
 * [`19e5506`](https://github.com/npm/metavuln-calculator/commit/19e5506b01c8d0612c72c0d87acc5ea4d676d6ea) [#166](https://github.com/npm/metavuln-calculator/pull/166) include prerelease versions in spec vulnerability testing (#166) (@Isolumi)
