@@ -1,5 +1,12 @@
 # Changelog
 
+## [9.0.3](https://github.com/npm/metavuln-calculator/compare/v9.0.2...v9.0.3) (2025-10-23)
+### Dependencies
+* [`f554afc`](https://github.com/npm/metavuln-calculator/commit/f554afcac86112f43a62551bc6e6bb5b1b2bf6cb) [#175](https://github.com/npm/metavuln-calculator/pull/175) bump proc-log from 5.0.0 to 6.0.0 (#175) (@dependabot[bot])
+* [`e20cd65`](https://github.com/npm/metavuln-calculator/commit/e20cd65cfe4f5a98919f1eeb8c10bfe38f75d794) [#176](https://github.com/npm/metavuln-calculator/pull/176) bump json-parse-even-better-errors from 4.0.0 to 5.0.0 (#176) (@dependabot[bot])
+### Chores
+* [`617fd8c`](https://github.com/npm/metavuln-calculator/commit/617fd8c10a3c6a3166d0f0835be5e079a865e22a) [#174](https://github.com/npm/metavuln-calculator/pull/174) bump @npmcli/template-oss from 4.26.0 to 4.27.1 (#174) (@dependabot[bot], @npm-cli-bot)
+
 ## [9.0.2](https://github.com/npm/metavuln-calculator/compare/v9.0.1...v9.0.2) (2025-07-25)
 ### Dependencies
 * [`b603409`](https://github.com/npm/metavuln-calculator/commit/b6034097d6421db941f725a886ce80af665ba900) [#170](https://github.com/npm/metavuln-calculator/pull/170) bump cacache from 19.0.1 to 20.0.0 (#170) (@dependabot[bot])
