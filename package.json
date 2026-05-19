@@ -39,7 +39,7 @@
     "tap": "^16.0.1"
   },
   "dependencies": {
-    "cacache": "^20.0.0",
+    "cacache": "^21.0.0",
     "json-parse-even-better-errors": "^5.0.0",
     "pacote": "^21.0.0",
     "proc-log": "^6.0.0",
