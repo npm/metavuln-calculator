@@ -1,5 +1,25 @@
 # Changelog
 
+## [10.0.0](https://github.com/npm/metavuln-calculator/compare/v9.0.3...v10.0.0) (2026-06-15)
+### ⚠️ BREAKING CHANGES
+* `@npmcli/metavuln-calculator` now supports node `^22.22.2 || ^24.15.0 || >=26.0.0`
+* template-oss-apply
+### Features
+* [`f2b9ecd`](https://github.com/npm/metavuln-calculator/commit/f2b9ecd4fe8bdc563eb599c728b689900c68880e) [#193](https://github.com/npm/metavuln-calculator/pull/193) bump to new node engine range (@owlstronaut)
+* [`1f9f5ec`](https://github.com/npm/metavuln-calculator/commit/1f9f5ecea60207dfa43dbe01f8f22945a676d69d) [#193](https://github.com/npm/metavuln-calculator/pull/193) template-oss-apply (@owlstronaut)
+### Dependencies
+* [`b526671`](https://github.com/npm/metavuln-calculator/commit/b5266714ed5069aa0a21fd87c4973b1495ad8a5c) [#193](https://github.com/npm/metavuln-calculator/pull/193) `proc-log@7.0.0`
+* [`6c9ce57`](https://github.com/npm/metavuln-calculator/commit/6c9ce579bb4be427ebb27b33989a21ca9e5de6e0) [#193](https://github.com/npm/metavuln-calculator/pull/193) `json-parse-even-better-errors@6.0.0`
+* [`a115c50`](https://github.com/npm/metavuln-calculator/commit/a115c5039d9c454588757bd774af7ad7ab898398) [#193](https://github.com/npm/metavuln-calculator/pull/193) `pacote@22.0.0`
+* [`8c3ad12`](https://github.com/npm/metavuln-calculator/commit/8c3ad12cf376d6150dc78bd03ecc854f10c09435) [#193](https://github.com/npm/metavuln-calculator/pull/193) `cacache@21.0.1`
+### Chores
+* [`df692a9`](https://github.com/npm/metavuln-calculator/commit/df692a91f81bb1cbbfa8a259eee17f78721f3174) [#193](https://github.com/npm/metavuln-calculator/pull/193) test only supported versions in CI (@owlstronaut)
+* [`7312cba`](https://github.com/npm/metavuln-calculator/commit/7312cbacb786ca3fa6724fd568bea26ef6493085) [#193](https://github.com/npm/metavuln-calculator/pull/193) `@npmcli/eslint-config@7.0.0` (@owlstronaut)
+* [`5065e32`](https://github.com/npm/metavuln-calculator/commit/5065e327044c97d719937062ef85c34f438ab130) [#193](https://github.com/npm/metavuln-calculator/pull/193) template-oss-apply (@owlstronaut)
+* [`dfc6e9e`](https://github.com/npm/metavuln-calculator/commit/dfc6e9e29b86fa7870cea94e6bd448da62ce742f) [#193](https://github.com/npm/metavuln-calculator/pull/193) bumping @npmcli/template-oss from 4.30.0 to 5.1.0 (@owlstronaut)
+* [`8263abc`](https://github.com/npm/metavuln-calculator/commit/8263abcdf365c660134770cc6da97e08b15aa602) bump @npmcli/eslint-config from 5.1.0 to 6.0.0 (#178) (@dependabot[bot])
+* [`248a4fe`](https://github.com/npm/metavuln-calculator/commit/248a4fec90c9b58d86fcd3f92c82c70bd2b5a03a) [#184](https://github.com/npm/metavuln-calculator/pull/184) bump @npmcli/template-oss from 4.29.0 to 4.30.0 (#184) (@dependabot[bot], @npm-cli-bot)
+
 ## [9.0.3](https://github.com/npm/metavuln-calculator/compare/v9.0.2...v9.0.3) (2025-10-23)
 ### Dependencies
 * [`f554afc`](https://github.com/npm/metavuln-calculator/commit/f554afcac86112f43a62551bc6e6bb5b1b2bf6cb) [#175](https://github.com/npm/metavuln-calculator/pull/175) bump proc-log from 5.0.0 to 6.0.0 (#175) (@dependabot[bot])
