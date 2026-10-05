@@ -148,3 +148,38 @@ t.test('packument not found', async t => {
     id: 'TEayTAF88mYJ/wy04iwwifoEUL/+mmrrYoE4EbGSe7s9nbZ8+zQQVqwnhh1TwzEFwV/DoaVAjHTdt+GXvT04lg==',
   })
 })
+
+t.test('normalize bundleDependencies in packument versions', async t => {
+  const mkdirp = structuredClone(packuments.mkdirp)
+  const dependencies = { minimist: '^1.2.0' }
+  Object.assign(mkdirp.versions, {
+    '2.0.0': { name: 'mkdirp', version: '2.0.0', dependencies, bundleDependencies: true },
+    '2.0.1': { name: 'mkdirp', version: '2.0.1', dependencies, bundleDependencies: dependencies },
+    '2.0.2': { name: 'mkdirp', version: '2.0.2', dependencies, bundleDependencies: false },
+  })
+  const mocks = {
+    minimist: structuredClone(packuments.minimist),
+    mkdirp,
+    'no-versions': { name: 'no-versions' },
+  }
+  const NormCalculator = requireInject('../lib/index.js', {
+    pacote: { packument: async name => mocks[name] },
+  })
+
+  const calc = new NormCalculator({ cache: t.testdir() })
+  const minimist = await calc.calculate('minimist', advisories.minimist)
+  const mkdirpVuln = await calc.calculate('mkdirp', minimist)
+
+  t.strictSame(mkdirp.versions['2.0.0'].bundleDependencies, ['minimist'], 'true expanded')
+  t.strictSame(mkdirp.versions['2.0.1'].bundleDependencies, ['minimist'], 'object to array')
+  t.strictSame(mkdirp.versions['2.0.2'].bundleDependencies, [], 'false to empty array')
+
+  // ^1.2.0 can resolve to a fixed minimist, but not when it is bundled
+  for (const v of ['2.0.0', '2.0.1']) {
+    t.ok(mkdirpVuln.vulnerableVersions.includes(v), `${v} is vulnerable`)
+  }
+  t.notOk(mkdirpVuln.vulnerableVersions.includes('2.0.2'), '2.0.2 is not vulnerable')
+
+  const noVersions = await calc.calculate('no-versions', minimist)
+  t.strictSame(noVersions.versions, [], 'packument with no versions')
+})
