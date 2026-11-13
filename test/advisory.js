@@ -236,11 +236,13 @@ t.test('create vulns from advisory', t => {
   })
   t.throws(() => mkdirpVuln.load({ id: 'wrong' }, {}), {
     message: 'loading from incorrect cache entry',
+    code: 'ECACHEMISMATCH',
     expected: mkdirpVuln.id,
     actual: 'wrong',
   })
   t.throws(() => mkdirpVuln.load({}, packuments.minimist), {
     message: 'loading from incorrect packument',
+    code: 'EPACKUMENTMISMATCH',
     expected: 'mkdirp',
     actual: 'minimist',
   })
